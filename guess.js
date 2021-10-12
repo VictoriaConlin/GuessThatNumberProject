@@ -65,7 +65,24 @@ while (restartGame){
         // Removes an attempt
         attempts--;
 
-        break;
+        // Checks if the user guessed correctly. If so, the game ends 
+        if (guess === randomNum){
+            alert(`CONGRATULATIONS YOU GUESSED THE CORRECT NUMBER: ${randomNum}`);
+            break;
+
+          // Checks if user has any attempts left. If not the game ends and the number is displayed to the user. 
+        } else if (attempts === 0){
+            alert(`Sorry, but you have run out of attempts :(. The number was ${randomNum}`);
+            break;
+
+            // Checks if users guess was to low and prompts user to guess again if that is the case
+        } else if (guess < randomNum){
+            guess = prompt(`Too low. You have ${attempts} attempt(s) left`);
+       
+            // The only other possibility is that the user's guess was to high so the user is prompted to guess again
+        } else {
+            guess = prompt(`Too high. You have ${attempts} attempt(s) left`);
+        }
     }
 
 
