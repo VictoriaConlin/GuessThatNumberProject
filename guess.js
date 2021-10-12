@@ -32,11 +32,14 @@ while (restartGame){
     // Using parseInt to attempt to convert the user's response into a number value. (NOTE: If the value cannot be converted then the value returned will be NaN (Not A Number))
     rangeNum = parseInt(rangeNum)
 
-    // 
+    // Verifies the user's entry for the range number is a number and greater than zero (NaN has a default boolean value of false. Also all numbers positive and negative have a default boolean value of true except for 0 which has a boolean value of false.)
     while (!rangeNum || rangeNum < 1){
         rangeNum = prompt(enterNumText);
         rangeNum = parseInt(rangeNum)
     }
+
+    // Creates the random number (AKA Number to be guessed) using the range number entered by the user
+    randomNum = Math.floor(Math.random() * rangeNum) + 1;
 
     break;
 }
